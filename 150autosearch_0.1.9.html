@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>gay</title>
+	<script>
+		var input;
+		var newinput;
+		var shici = "之其以而何于比鄙兵病察彻乘从当道得定伐犯方负赋更故顾观归过好号还会惠及极计济加假间简见竭尽进居举具俱聚遽决绝类临虑论漫明名命谋难平戚启强窃请穷求取去全任入善少舍涉生胜师施实食使释市恃属说素汤亡为务徙狭鲜向效信行形兴修徐许寻业遗贻夷异易诣益阴引盈余狱御缘远云章知止志致质众专走足卒作坐";
+		var dict = shici.split("");
+		var u,l,tx,confirm;
+		var countass = 0;
+		var entered = new Array();
+		entered = ['q','w','e'];
+		confirm = 0;
+		function press(mode) {
+			document.getElementById('output').innerHTML = ""
+			input = document.getElementById('input').value;
+			newinput = input.split("");
+			if (mode==1) {
+				u = 0;l = dict.length;tx = "全部：";
+			}
+			if (mode==2) {
+				u = 0;l = 7;tx = "虚词：";
+			}
+			if (mode==3) {
+				u = 7;l = dict.length;tx = "实词："
+			}
+			for (var i = 0;i<newinput.length;i++) {
+				document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + newinput[i];
+				if (confirm==1) {
+					document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + "} ";
+					confirm = 0;
+				}
+				for (var x = u;x<l;x++) {
+					if (newinput[i+1]==dict[x]) {
+						document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + " {";
+						confirm = 1;
+					}
+				}
+			}
+			document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + "====================================" + tx;
+			for (var i = 0;i<newinput.length;i++) {
+				for (var x = u;x<l;x++) {
+					if (newinput[i]==dict[x]) {
+						document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + dict[x];
+					}
+				}
+			}
+		}
+		document.onkeydown = function kd(e) {
+			e = e || window.event;
+    		entered[countass] = String.fromCharCode(e.keyCode);
+    		countass++;
+    		if (countass==3) {countass = 0;}
+    		if (entered[0]=='A' && entered[1]=='S' && entered[2]=='S') {alert("ass we can");entered = ['q','w','e'];}
+			if (entered[0]=='V' && entered[1]=='A' && entered[2]=='N') {alert("小货车");entered = ['q','w','e'];}
+			if (entered[0]=='B' && entered[1]=='O' && entered[2]=='Y') {alert("Oh,it was the boy next door!");entered = ['q','w','e'];}
+		}
+
+	</script>
+</head>
+<body style="background-color: #222222" >
+	<input id="input" style="min-width: 850px">
+	<button id="button" onclick="press(1)">全部</button>
+	<button id="button2" onclick="press(2)">虚词</button>
+	<button id="button3" onclick="press(3)">实词</button>
+	<p id="output" style="color: #ffffff"></p>
+</body>
+</html>
