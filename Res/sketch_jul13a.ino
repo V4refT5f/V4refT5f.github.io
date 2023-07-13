@@ -1,9 +1,13 @@
+#include <HTTP_Method.h>
+#include <Uri.h>
+#include <WebServer.h>
+
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiAP.h>
 
 
-#define BAUDRATE 115200
+#define BAUDRATE 99999999
 
 #define GET_MESSAGE "GET /?controlInfo="
 #define GET_MESSAGE_LEN 18
@@ -21,10 +25,13 @@ void setup() {
 
     Serial.begin(BAUDRATE);
 
-    delay(10);
+    delay(100);
 
+    WiFi.mode(WIFI_MODE_AP);
     WiFi.softAP(ssid, password);
     WiFi.softAPConfig(local_ip, gateway, subnet);
+    delay(100);
+
     server.begin();
 
 }
