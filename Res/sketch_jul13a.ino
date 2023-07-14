@@ -60,7 +60,7 @@ void loop() {
                         client.println("HTTP/1.1 200 OK");
                         client.println("Content-type:text/html");
                         client.println();
-                        client.print("<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n\t<meta charset=\"Shift_JIS\">\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t<title>ESP32 Control</title>\n</head>\n<body>\n\n<script>\nfunction press(text) {\n\tdocument.getElementById(\"controlInfo\").value = text;\n\tdocument.getElementById(\"confirm\").click();\n}\n</script> \n\n<form name=\"input\" method=\"get\">\nText to be sent: <input type=\"text\" name=\"controlInfo\" id=\"controlInfo\">\n<input type=\"submit\" value=\"Confirm\" id='confirm'>\n</form>\n\n<button name=\"B\" onclick=\"press('B')\">B</button>\n<button name=\"F\" onclick=\"press('F')\">F</button>\n\n</body>\n</html>");
+                        client.print("<!DOCTYPE html>\n<html lang=\"ja\">\n<head>\n\t<meta charset=\"Shift_JIS\">\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t<title>ESP32 Control</title>\n</head>\n<body>\n<script>\nfunction press(text) {\n\tdocument.getElementById(\"controlInfo\").value = text;\n\tdocument.getElementById(\"confirm\").click();\n}\n</script> \n<form name=\"input\" method=\"get\">\nText to be sent: <input type=\"text\" name=\"controlInfo\" id=\"controlInfo\">\n<input type=\"submit\" value=\"Confirm\" id='confirm'>\n</form>\n<button name=\"B\" onclick=\"press('B')\">B</button>\n<button name=\"F\" onclick=\"press('F')\">F</button>\n</body>\n</html>");
                         client.println();
 
                     }
